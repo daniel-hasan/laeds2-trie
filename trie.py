@@ -1,11 +1,11 @@
 from typing import List
 class NoTrie:
-	def __init__(self, letra="", fim_palavra:bool=False):
+	def __init__(self, letra:str="", fim_palavra:bool=False):
 		self.filhos = dict()
 		self.fim_palavra = fim_palavra
 		self.letra = letra
 
-	##@property
+        
 	def insere(self, letra:str, fim_palavra:bool):
 		self.filhos[letra] = NoTrie(letra, fim_palavra)
 
@@ -19,7 +19,7 @@ class NoTrie:
 		return self.filhos.keys()
 
 class Trie:
-	def __init__(self, raiz=None):
+	def __init__(self, raiz:NoTrie=None):
 		if not raiz:
 			raiz = NoTrie()
 		self.raiz = raiz
@@ -54,30 +54,3 @@ class Trie:
 
 		return []
 
-def main():
-	pass
-	# palavras criadas
-	#palavras = ["teste", "a", "texto", "aresta", "ano",
-	#		  "zebra", "trabalho",]
-
-	# arvore Trie
-	#arvore = Trie()
-
-	# insere palavras
-	#print("Insercao:")
-	#for palavra in palavras:
-	#	arvore.insere(palavra)
-	#	print(f"palavra -{palavra}- inserida")
-
-	#print("\n")
-	# pesquisa
-	#print("Pesquisa:")
-	#print(f'-{"ano"}-: {arvore.pesquisa("ano")}')
-	#print(f'-{"ana"}-: {arvore.pesquisa("ana")}')
-	#print(f'-{"teste"}-: {arvore.pesquisa("teste")}')
-	#print(f'-{"testa"}-: {arvore.pesquisa("testa")}')
-	#print(f'-{"texto"}-: {arvore.pesquisa("texto")}')
-	#print(f'-{"trabalho"}-: {arvore.pesquisa("trabalho")}')
-
-if __name__ == '__main__':
-	main()
